@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import HumanoidSection from '@/components/HumanoidSection'
@@ -15,12 +16,14 @@ import { VisualEditing } from '@/components/VisualEditing'
 import { SanityLive, useLiveQuery } from '@/sanity/lib/live'
 import { urlFor } from '@/sanity/lib/image'
 
-const Index = () => {
+const DynamicPage = () => {
+  const { slug } = useParams<{ slug: string }>()
+  
   const {
     data: pageData,
     isLoading,
     error,
-  } = useLiveQuery(PAGE_QUERY, { slug: 'home' })
+  } = useLiveQuery(PAGE_QUERY, { slug })
 
   // Update SEO meta tags when page data loads
   useEffect(() => {
@@ -163,6 +166,7 @@ const Index = () => {
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
             Page not found
           </h1>
+          <p className="text-gray-600">The page "/{slug}" does not exist</p>
         </div>
       </div>
     )
@@ -247,4 +251,5 @@ const Index = () => {
   )
 }
 
-export default Index
+export default DynamicPage
+
