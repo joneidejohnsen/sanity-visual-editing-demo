@@ -3,9 +3,10 @@ import { buildLegacyTheme, type StudioTheme } from "sanity";
 const darkProps = {
   "--lovable-background": "#1C1C1C",
   "--lovable-card": "#0D0D0D",
+  "--lovable-primary": "#8C8C8C",
   "--lovable-secondary": "#262626",
   "--lovable-foreground": "#FCFBF8",
-  "--lovable-muted-foreground": "#8C8C8C",
+  "--lovable-muted-foreground": "#acabaa",
   "--lovable-border": "#404040",
   "--lovable-accent": "#4B73FF",
   "--lovable-destructive": "#D32F2F",
@@ -16,9 +17,10 @@ const darkProps = {
 const lightProps = {
   "--lovable-background": "#FCFBF8",
   "--lovable-card": "#FCFBF8",
+  "--lovable-primary": "#5E5E5E",
   "--lovable-secondary": "#F7F5F0",
   "--lovable-foreground": "#1C1C1C",
-  "--lovable-muted-foreground": "#5E5E5E",
+  "--lovable-muted-foreground": "#403f3f",
   "--lovable-border": "#EAE8E3",
   "--lovable-accent": "#4B73FF",
   "--lovable-destructive": "#D32F2F",
@@ -36,7 +38,7 @@ const darkTheme = buildLegacyTheme({
   "--focus-color": darkProps["--lovable-foreground"] /* Brand */,
   "--brand-primary": darkProps["--lovable-accent"] /* Buttons */,
   "--default-button-color": darkProps["--lovable-muted-foreground"],
-  "--default-button-primary-color": darkProps["--lovable-muted-foreground"],
+  "--default-button-primary-color": darkProps["--lovable-primary"],
   "--default-button-success-color": darkProps["--lovable-success"],
   "--default-button-warning-color": darkProps["--lovable-warning"],
   "--default-button-danger-color":
@@ -59,7 +61,7 @@ const lightTheme = buildLegacyTheme({
   "--focus-color": lightProps["--lovable-background"] /* Brand */,
   "--brand-primary": lightProps["--lovable-accent"] /* Buttons */,
   "--default-button-color": lightProps["--lovable-muted-foreground"],
-  "--default-button-primary-color": lightProps["--lovable-muted-foreground"],
+  "--default-button-primary-color": darkProps["--lovable-primary"],
   "--default-button-success-color": lightProps["--lovable-success"],
   "--default-button-warning-color": lightProps["--lovable-warning"],
   "--default-button-danger-color":
