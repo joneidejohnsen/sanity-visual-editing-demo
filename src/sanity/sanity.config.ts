@@ -10,14 +10,13 @@ import {presentationTool} from 'sanity/presentation'
 import {dataset, projectId} from './env.ts'
 import {schema} from './schemaTypes'
 import {structure} from './structure.ts'
-import {lovableTheme} from "@/sanity/lovableTheme.ts";
+import {lovableDark} from "@/sanity/lovableTheme.ts";
 
 export default defineConfig({
   basePath: '/admin',
   title: 'Content',
   projectId,
   dataset,
-  theme: lovableTheme,
   // Add and edit the content schema in the '.src/sanity/schemaTypes' folder
   schema,
   // Authenticate user by adding the following to local storage:

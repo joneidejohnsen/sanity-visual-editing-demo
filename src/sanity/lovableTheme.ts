@@ -1,63 +1,76 @@
-// lovableTheme.ts
-// A dark, Lovable.dev–inspired theme for Sanity Studio
-// Drop this file in your Studio root and import it in sanity.config.ts
-// Docs: https://www.sanity.io/docs/studio/theming
+import { buildLegacyTheme, type StudioTheme } from "sanity";
 
-import {buildLegacyTheme} from "sanity";
-
-// Palette inspired by lovable.dev (purple/pink/cyan on near-black)
-const props = {
-  // base
-  "--lovable-black": "#0B0D12",
-  "--lovable-elevated": "#11141F",
-  "--lovable-border": "#23273A",
-  "--lovable-text": "#E8EAF2",
-  "--lovable-muted": "#A7AEC4",
-
-  // brand accents
-  "--lovable-purple": "#6C47FF",
-  "--lovable-pink": "#FF1E8C",
-  "--lovable-cyan": "#21D4FD",
-
-  // states
-  "--lovable-green": "#22C55E",
-  "--lovable-yellow": "#FACC15",
-  "--lovable-red": "#EF4444",
+const darkProps = {
+  "--lovable-background": "#1C1C1C",
+  "--lovable-card": "#0D0D0D",
+  "--lovable-secondary": "#262626",
+  "--lovable-foreground": "#FCFBF8",
+  "--lovable-muted-foreground": "#8C8C8C",
+  "--lovable-border": "#404040",
+  "--lovable-accent": "#4B73FF",
+  "--lovable-destructive": "#D32F2F",
+  "--lovable-success": "#1B5E20",
+  "--lovable-warning": "#E65100",
 };
 
-export const lovableTheme = buildLegacyTheme({
-  /* Base theme colors */
-  "--black": props["--lovable-black"],
-  "--white": "#ffffff",
+const lightProps = {
+  "--lovable-background": "#FCFBF8",
+  "--lovable-card": "#FCFBF8",
+  "--lovable-secondary": "#F7F5F0",
+  "--lovable-foreground": "#1C1C1C",
+  "--lovable-muted-foreground": "#5E5E5E",
+  "--lovable-border": "#EAE8E3",
+  "--lovable-accent": "#4B73FF",
+  "--lovable-destructive": "#D32F2F",
+  "--lovable-success": "#1B5E20",
+  "--lovable-warning": "#E65100",
+};
 
-  // greys & component surfaces
-  "--gray": props["--lovable-muted"],
-  "--gray-base": props["--lovable-muted"],
-  "--component-bg": props["--lovable-elevated"],
-  "--component-text-color": props["--lovable-text"],
-
-  // borders & focus
-  //"--hairline-color": props["--lovable-border"],
-  "--focus-color": props["--lovable-purple"],
-
-  /* Brand */
-  "--brand-primary": props["--lovable-purple"],
-
-  /* Buttons */
-  "--default-button-color": props["--lovable-muted"],
-  "--default-button-primary-color": props["--lovable-purple"],
-  "--default-button-success-color": props["--lovable-green"],
-  "--default-button-warning-color": props["--lovable-yellow"],
-  "--default-button-danger-color": props["--lovable-red"],
-
-  /* States */
-  "--state-info-color": props["--lovable-cyan"],
-  "--state-success-color": props["--lovable-green"],
-  "--state-warning-color": props["--lovable-yellow"],
-  "--state-danger-color": props["--lovable-red"],
-
-  /* Navbar */
-  "--main-navigation-color": props["--lovable-black"],
-  "--main-navigation-color--inverted": props["--lovable-text"],
-
+const darkTheme = buildLegacyTheme({
+  "--black": darkProps["--lovable-background"],
+  "--white": darkProps["--lovable-foreground"],
+  "--gray": darkProps["--lovable-muted-foreground"],
+  "--gray-base": darkProps["--lovable-muted-foreground"],
+  "--component-bg": darkProps["--lovable-card"],
+  "--component-text-color": darkProps["--lovable-foreground"],
+  "--focus-color": darkProps["--lovable-foreground"] /* Brand */,
+  "--brand-primary": darkProps["--lovable-accent"] /* Buttons */,
+  "--default-button-color": darkProps["--lovable-muted-foreground"],
+  "--default-button-primary-color": darkProps["--lovable-muted-foreground"],
+  "--default-button-success-color": darkProps["--lovable-success"],
+  "--default-button-warning-color": darkProps["--lovable-warning"],
+  "--default-button-danger-color":
+    darkProps["--lovable-destructive"] /* States */,
+  "--state-info-color": darkProps["--lovable-accent"],
+  "--state-success-color": darkProps["--lovable-success"],
+  "--state-warning-color": darkProps["--lovable-warning"],
+  "--state-danger-color": darkProps["--lovable-destructive"] /* Navbar */,
+  "--main-navigation-color": darkProps["--lovable-background"],
+  "--main-navigation-color--inverted": darkProps["--lovable-foreground"],
 });
+
+const lightTheme = buildLegacyTheme({
+  "--black": lightProps["--lovable-foreground"],
+  "--white": lightProps["--lovable-background"],
+  "--gray": lightProps["--lovable-muted-foreground"],
+  "--gray-base": lightProps["--lovable-muted-foreground"],
+  "--component-bg": lightProps["--lovable-card"],
+  "--component-text-color": lightProps["--lovable-foreground"],
+  "--focus-color": lightProps["--lovable-background"] /* Brand */,
+  "--brand-primary": lightProps["--lovable-accent"] /* Buttons */,
+  "--default-button-color": lightProps["--lovable-muted-foreground"],
+  "--default-button-primary-color": lightProps["--lovable-muted-foreground"],
+  "--default-button-success-color": lightProps["--lovable-success"],
+  "--default-button-warning-color": lightProps["--lovable-warning"],
+  "--default-button-danger-color":
+    lightProps["--lovable-destructive"] /* States */,
+  "--state-info-color": lightProps["--lovable-accent"],
+  "--state-success-color": lightProps["--lovable-success"],
+  "--state-warning-color": lightProps["--lovable-warning"],
+  "--state-danger-color": lightProps["--lovable-destructive"] /* Navbar */,
+  "--main-navigation-color": lightProps["--lovable-background"],
+  "--main-navigation-color--inverted": lightProps["--lovable-foreground"],
+});
+
+export const lovableDark: StudioTheme = darkTheme;
+export const lovableLight: StudioTheme = lightTheme;
