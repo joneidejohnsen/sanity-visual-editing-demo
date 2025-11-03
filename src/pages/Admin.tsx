@@ -1,5 +1,5 @@
 import { Studio } from "sanity";
-import config from "../../sanity.config";
+import config from "@/sanity/sanity.config.ts";
 
 export default function AdminPage() {
   return (
@@ -12,7 +12,7 @@ export default function AdminPage() {
         overflow: 'auto',
       }}
     >
-      <Studio config={config} />
+      <Studio  config={config} unstable_noAuthBoundary />
     </div>
   );
 }

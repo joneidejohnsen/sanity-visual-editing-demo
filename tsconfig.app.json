@@ -26,5 +26,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "sanity.types.ts"]
+  "include": ["src",
+    "src/sanity/sanity.types.ts"
+  ]
 }
