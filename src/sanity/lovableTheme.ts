@@ -3,7 +3,7 @@ import { buildLegacyTheme, type StudioTheme } from "sanity";
 const darkProps = {
   "--lovable-background": "#1C1C1C",
   "--lovable-card": "#0D0D0D",
-  "--lovable-primary": "#8C8C8C",
+  "--lovable-primary": "#66666640",
   "--lovable-secondary": "#262626",
   "--lovable-foreground": "#FCFBF8",
   "--lovable-muted-foreground": "#acabaa",
